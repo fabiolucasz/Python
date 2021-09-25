@@ -2,7 +2,7 @@ peso = float(input('Seu peso:'))
 
 if peso > 50:
     excesso = peso - 50
-    multa = excesso * 5
+    multa = excesso * 4
 else:
     multa = excesso = 0
         
