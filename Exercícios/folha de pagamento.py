@@ -1,64 +1,94 @@
 #perguntar valor da hora e numero de horas trabalhadas
-
 hora = float(input('Valor da hora: R$'))
 tempo = int(input('Quantidade de horas trabalhadas: '))
-
-salario_bruto = (hora*tempo)
-print (f'Salário bruto: R${salario_bruto}')
-
-#irrf
-if salario_bruto < 1903.98:
-    irrf = (salario_bruto * 0)
-    salario_bruto_irrf = salario_bruto - irrf
-    print (f'-IRRF: R${irrf:.2f}')
-    print (f'Você está isento!')
-
-elif salario_bruto >= 1903.99 and salario_bruto <=  2826.65:
-        irrf = (salario_bruto * 0.075)
-        salario_bruto_irrf = salario_bruto - irrf
-        print (f'-IRRF: R${irrf:.2f}')
-        
-
-elif salario_bruto >= 2826.66 and salario_bruto <=  3751.05:
-        irrf = (salario_bruto * 0.15)
-        salario_bruto_irrf = salario_bruto - irrf
-        print (f'-IRRF: R${irrf:.2f}')
-        
-
-elif salario_bruto >= 3751.06 and salario_bruto <=  4664.68:
-        irrf = (salario_bruto * 0.225)
-        salario_bruto_irrf = salario_bruto - irrf
-        print (f'-IRRF: R${irrf:.2f}')
-        
+sb = (hora*tempo)
 
 
-#inss
+while sb > 0:
+        hora = float(input('Valor da hora: R$'))
+        tempo = int(input('Quantidade de horas trabalhadas: '))
+        sb = (hora*tempo)
+        sm = 1212
+        inssp2 = 2427.35 - 1212.01
+        inssp3 = 3641.03 - 2427.36
+        inssp4 = 7087.22 - 3641.04
+        vt = (sb * 0.06)
 
-if salario_bruto <= 1100:
-        inss = (salario_bruto * 0.075)
-        salario_bruto_inss = salario_bruto - inss
-        print (f'-INSS: R${inss:.2f}')
+        print (f'Salário bruto: R${sb}')
+        #inss
+        if sb <= 1212:
+                inss = (sb * 0.075)
+                sb_inss = sb - inss
+                print (f'-INSS: R${inss:.2f}')
 
-elif salario_bruto >= 1100.01 and salario_bruto <=  2203.48:
-        inss = (salario_bruto * 0.09)
-        salario_bruto_inss = salario_bruto - inss
-        print (f'-INSS: R${inss:.2f}')
+        elif sb <=  2427.35:
+                inss = (sm * 0.075) + (sb - 1212.01) * 0.09
+                sb_inss = sb - inss
+                print (f'-INSS: R${inss:.2f}')
 
-elif salario_bruto >= 2203.49 and salario_bruto <= 3305.22:
-        inss = (salario_bruto * 0.12)
-        salario_bruto_inss = salario_bruto - inss
-        print (f'-INSS: R${inss:.2f}')
+        elif sb <= 3641.03:
+                inss = (sm * 0.075) + (inssp2 * 0.09) + ((sb - (inssp2 + sm)) * 0.12)
+                sb_inss = sb - inss
+                print (f'-INSS: R${inss:.2f}')
 
-elif salario_bruto >= 3305.23 and salario_bruto <= 6433.57:
-        inss = (salario_bruto * 0.14)
-        salario_bruto_inss = salario_bruto - inss
-        print (f'-INSS: R${inss:.2f}')
+        elif sb <= 7087.22:
+                inss = (sm * 0.075) + (inssp2 * 0.09) + (inssp3 * 0.12) + ((sb - (sm + inssp2 + inssp3 + 0.03)) * 0.14)
+                sb_inss = sb - inss
+                print (f'-INSS: R${inss:.2f}')
+        else:
+                inss = 828.39
+                sb_inss = sb - inss
+                print (f'-INSS: R${inss:.2f}')
 
-sindicato = (salario_bruto * 0.05)
-salario_bruto - sindicato
+        #irrf
+        if sb <= 1903.98:
+                irrf = (sb * 0)
+                sb_irrf = sb - irrf
+                print (f'-IRRF: R${irrf:.2f}')
+                print (f'Você está isento!')
 
-print (f'Sindicato: R${sindicato}')
-    
-salario_liquido = salario_bruto - irrf - inss - sindicato
-print (f'Total de descontos: R${irrf + inss + sindicato}')
-print (f'Seu salário líquido é: R${salario_liquido}')
+        elif sb <=  2826.65:
+                deducao = 142.8
+                irrf = (sb * 0.075) - deducao
+                sb_irrf = sb - irrf
+                print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
+                        
+
+        elif sb <=  3751.05:
+                deducao = 354.80
+                irrf = (sb * 0.15) - deducao
+                sb_irrf = sb - irrf
+                print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
+                        
+
+        elif sb <=  4664.68:
+                deducao = 636.13
+                irrf = (sb * 0.225) - deducao
+                sb_irrf = sb - irrf
+                print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
+        else:
+                deducao = 869.36
+                irrf = (sb * 0.275) - deducao
+                sb_irrf = sb - irrf
+                print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
+
+
+        # vale transporte - pagamos 2 passagens de no máximo R$4.45 ou R$8.90 por dia.
+        # são 26 dias trabalhados de seg a sáb. 8.9 * 26 = 231.40
+        if vt < 231.4:
+                vt = (sb * 0.06)
+                sb - vt
+                print (f'Vale transporte: R${vt}')
+        else:
+                vt = 231.4
+                print(f'-Vale transporte: R${vt}')
+
+        #FGTS
+        fgts = sb * 0.08
+        print(f'-FGTS: R${fgts}')
+
+                
+        salario_liquido = sb - inss - irrf - vt
+        print (f'Total de descontos: R${inss + irrf + vt:.2f}')
+        print (f'Seu salário líquido é: R${salario_liquido:.2f}')
+
