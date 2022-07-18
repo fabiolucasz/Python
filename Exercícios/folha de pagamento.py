@@ -1,12 +1,12 @@
 #perguntar valor da hora e numero de horas trabalhadas
 hora = float(input('Valor da hora: R$'))
-tempo = int(input('Quantidade de horas trabalhadas: '))
+tempo = float(input('Quantidade de horas trabalhadas: '))
 sb = (hora*tempo)
 
 
 while sb > 0:
         hora = float(input('Valor da hora: R$'))
-        tempo = int(input('Quantidade de horas trabalhadas: '))
+        tempo = float(input('Quantidade de horas trabalhadas: '))
         sb = (hora*tempo)
         sm = 1212
         inssp2 = 2427.35 - 1212.01
@@ -49,26 +49,26 @@ while sb > 0:
 
         elif sb <=  2826.65:
                 deducao = 142.8
-                irrf = (sb * 0.075) - deducao
+                irrf = ((sb - inss) * 0.075) - deducao
                 sb_irrf = sb - irrf
                 print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
                         
 
         elif sb <=  3751.05:
                 deducao = 354.80
-                irrf = (sb * 0.15) - deducao
+                irrf = ((sb - inss) * 0.15) - deducao
                 sb_irrf = sb - irrf
                 print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
                         
 
         elif sb <=  4664.68:
                 deducao = 636.13
-                irrf = (sb * 0.225) - deducao
+                irrf = ((sb - inss) * 0.225) - deducao
                 sb_irrf = sb - irrf
                 print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
         else:
                 deducao = 869.36
-                irrf = (sb * 0.275) - deducao
+                irrf = ((sb - inss) * 0.275) - deducao
                 sb_irrf = sb - irrf
                 print (f'-Dedução do IRRF: R${deducao:.2f}\n-IRRF: R${irrf:.2f}')
 
