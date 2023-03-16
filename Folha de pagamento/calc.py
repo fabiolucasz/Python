@@ -6,31 +6,33 @@ while True:
         hora = float(input('Valor da hora: R$'))
         tempo = float(input('Quantidade de horas trabalhadas: '))
         sb = (hora*tempo)
-        sm = 1212
-        inssp2 = 2427.35 - 1212.01
-        inssp3 = 3641.03 - 2427.36
-        inssp4 = 7087.22 - 3641.04
+        sm = 1302
+        inssp2 = 2571.29 - 1302.01
+        inssp3 = 3856.94 - 2571.30
+        inssp4 = 7507.49 - 3856.95
         vt = (sb * 0.06)
+
+
         if hora == 0:
                 break
         print (f'Salário bruto: R${sb}')
         #inss
-        if sb <= 1212:
+        if sb <= 1302:
                 inss = (sb * 0.075)
                 sb_inss = sb - inss
                 print (f'-INSS: R${inss:.2f}')
 
-        elif sb <=  2427.35:
-                inss = (sm * 0.075) + (sb - 1212.01) * 0.09
+        elif sb <=  2571.29:
+                inss = (sm * 0.075) + (sb - 1302.01) * 0.09
                 sb_inss = sb - inss
                 print (f'-INSS: R${inss:.2f}')
 
-        elif sb <= 3641.03:
+        elif sb <= 3856.94:
                 inss = (sm * 0.075) + (inssp2 * 0.09) + ((sb - (inssp2 + sm)) * 0.12)
                 sb_inss = sb - inss
                 print (f'-INSS: R${inss:.2f}')
 
-        elif sb <= 7087.22:
+        elif sb <= 7507.49:
                 inss = (sm * 0.075) + (inssp2 * 0.09) + (inssp3 * 0.12) + ((sb - (sm + inssp2 + inssp3 + 0.03)) * 0.14)
                 sb_inss = sb - inss
                 print (f'-INSS: R${inss:.2f}')
@@ -90,4 +92,3 @@ while True:
         salario_liquido = sb - inss - irrf - vt
         print (f'Total de descontos: R${inss + irrf + vt:.2f}')
         print (f'Seu salário líquido é: R${salario_liquido:.2f}')
-
