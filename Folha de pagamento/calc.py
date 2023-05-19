@@ -1,4 +1,6 @@
-#perguntar valor da hora e numero de horas trabalhadas
+#pergunta valor da hora e numero de horas trabalhadas
+
+# Cole o código no site abaixo para a utilização do programa:
 # https://www.programiz.com/python-programming/online-compiler/
 
 
